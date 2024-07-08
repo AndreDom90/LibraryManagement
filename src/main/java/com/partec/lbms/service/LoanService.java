@@ -7,12 +7,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.time.LocalDate;
 
 @Service
 public class LoanService {
 
     @Autowired
     private LoanRepository loanRepository;
+
+
+    public List<Loan> getLoansDueSoon() {
+        LocalDate today = LocalDate.now();
+        LocalDate dueDateThreshold = today.plusDays(3);
+        return loanRepository.findByDueDateBefore(dueDateThreshold);
+    }
 
     public Loan borrowBook(Loan loan) {
         return loanRepository.save(loan);
