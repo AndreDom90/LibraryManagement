@@ -2,6 +2,8 @@ package com.partec.lbms.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,4 +24,7 @@ public class Loan {
 
     private Date loanDate;
     private Date returnDate;
+
+    public void setDueDate(LocalDate localDate) {
+    }
 }

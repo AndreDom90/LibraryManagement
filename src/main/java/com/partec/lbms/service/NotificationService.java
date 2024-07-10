@@ -38,7 +38,7 @@ public class NotificationService {
         }
     }
 
-    private void sendDueDateNotification(User user) {
+    public void sendDueDateNotification(User user) {
         String to = user.getEmail();
         String subject = "Promemoria: Restituzione libro imminente";
         String text = "Gentile " + user.getFirstName() + ",\n\n" +
@@ -60,7 +60,7 @@ public class NotificationService {
             helper.setText(text);
             mailSender.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
     }
 }
